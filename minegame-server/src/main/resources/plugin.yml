@@ -1,0 +1,5 @@
+name: MineGame
+version: '${version}'
+main: top.nipuru.minegame.server.BukkitPlugin
+authors: [ Nipuru ]
+load: STARTUP
