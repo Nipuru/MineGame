@@ -5,7 +5,6 @@ import com.alipay.remoting.BizContext
 import com.alipay.remoting.rpc.protocol.AsyncUserProcessor
 import org.bukkit.Bukkit
 import top.nipuru.minegame.common.message.PlayerOfflineDataMessage
-import top.nipuru.minegame.game.BukkitPlugin
 import top.nipuru.minegame.game.gameplay.player.GamePlayer
 import top.nipuru.minegame.game.playerList
 import top.nipuru.minegame.game.plugin

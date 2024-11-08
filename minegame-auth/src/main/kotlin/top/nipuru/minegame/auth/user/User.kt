@@ -1,6 +1,5 @@
 package top.nipuru.minegame.auth.user
 
-import lombok.Data
 import java.util.*
 
 

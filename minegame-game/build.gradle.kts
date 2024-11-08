@@ -6,7 +6,6 @@ plugins {
 
 dependencies {
     paperweight.paperDevBundle("1.20.4-R0.1-SNAPSHOT")
-    compileOnly("org.jetbrains:annotations:20.1.0")
     compileOnly("net.afyer.afybroker:afybroker-client:2.2")
     implementation(project(":minegame-common"))
 }

@@ -10,7 +10,6 @@ import top.nipuru.minegame.database.util.getSqlName
 import top.nipuru.minegame.database.util.getSqlType
 import top.nipuru.minegame.database.util.setObject
 import java.sql.Connection
-import java.sql.SQLException
 import java.util.concurrent.ConcurrentHashMap
 
 object PlayerDataManager {

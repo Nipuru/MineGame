@@ -4,7 +4,6 @@ import com.alipay.remoting.AsyncContext
 import com.alipay.remoting.BizContext
 import com.alipay.remoting.rpc.protocol.AsyncUserProcessor
 import net.afyer.afybroker.server.Broker
-import net.afyer.afybroker.server.proxy.BrokerPlayer
 import top.nipuru.minegame.broker.game.GamePlayer
 import top.nipuru.minegame.broker.playerList
 import top.nipuru.minegame.common.message.PlayerRegisterMessage

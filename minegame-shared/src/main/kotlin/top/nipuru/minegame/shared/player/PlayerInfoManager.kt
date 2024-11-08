@@ -1,9 +1,7 @@
 package top.nipuru.minegame.shared.player
 
 import top.nipuru.minegame.common.message.shared.PlayerInfoMessage
-import top.nipuru.minegame.shared.SharedServer
 import top.nipuru.minegame.shared.dataSource
-import java.sql.SQLException
 import java.util.concurrent.ConcurrentHashMap
 
 object PlayerInfoManager {

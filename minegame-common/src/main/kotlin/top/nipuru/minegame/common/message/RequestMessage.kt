@@ -1,7 +1,6 @@
 package top.nipuru.minegame.common.message
 
 import com.alipay.remoting.config.ConfigManager
-import com.alipay.remoting.exception.CodecException
 import com.alipay.remoting.serialization.SerializerManager
 import java.io.Serializable
 
