@@ -15,7 +15,7 @@ import top.nipuru.minegame.game.playerList
 import top.nipuru.minegame.game.plugin
 
 class PlayerDataTransferBukkitProcessor : AsyncUserProcessor<PlayerDataTransferRequest>() {
-    @Throws(Exception::class)
+
     override fun handleRequest(bizCtx: BizContext, asyncCtx: AsyncContext, request: PlayerDataTransferRequest) {
         Bukkit.getScheduler().runTask(plugin, Runnable {
             val player: GamePlayer = playerList.getPlayer(request.uniqueId)

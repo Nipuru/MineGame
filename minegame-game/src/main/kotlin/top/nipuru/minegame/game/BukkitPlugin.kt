@@ -1,13 +1,18 @@
 package top.nipuru.minegame.game
 
 import com.google.common.util.concurrent.ThreadFactoryBuilder
+import com.google.gson.Gson
+import com.google.gson.GsonBuilder
 import net.afyer.afybroker.client.Broker
 import net.afyer.afybroker.client.BrokerClientBuilder
 import org.bukkit.Bukkit
+import org.bukkit.plugin.Plugin
 import org.bukkit.plugin.java.JavaPlugin
+import org.slf4j.LoggerFactory
 import top.nipuru.minegame.common.ClientTag
 import top.nipuru.minegame.common.processor.RequestDispatcher
 import top.nipuru.minegame.game.gameplay.player.GamePlayer
+import top.nipuru.minegame.game.gameplay.player.GamePlayerList
 import top.nipuru.minegame.game.listener.AsyncPlayerPreLoginListener
 import top.nipuru.minegame.game.listener.PlayerChatListener
 import top.nipuru.minegame.game.listener.PlayerJoinListener
@@ -18,26 +23,36 @@ import top.nipuru.minegame.game.processor.PlayerOfflineDataBukkitProcessor
 import top.nipuru.minegame.game.processor.PlayerPrivateChatServerProcessor
 import top.nipuru.minegame.game.task.ServerTickTask
 import java.util.*
-import java.util.concurrent.ExecutorService
-import java.util.concurrent.Executors
-import java.util.concurrent.TimeUnit
+import java.util.concurrent.*
 
 /**
  * @author Nipuru
  * @since 2024/9/16 0:17
  */
-class BukkitPlugin : JavaPlugin() {
+val logger = LoggerFactory.getLogger("MineGame")
 
-    private val bizExecutorService: ExecutorService = Executors.newCachedThreadPool(
-        ThreadFactoryBuilder()
-            .setDaemon(false)
-            .setNameFormat("MineGame-bizThread-%d")
-            .build()
-    )
+val playerList = GamePlayerList()
+
+val enableLatch = CountDownLatch(1)
+
+val gson: Gson = GsonBuilder().create()
+
+lateinit var bizThread: ExecutorService
+    private set
+
+lateinit var plugin: Plugin
+    private set
+
+class BukkitPlugin : JavaPlugin() {
 
     override fun onLoad() {
         plugin = this
-        bizThread = bizExecutorService
+        bizThread = Executors.newCachedThreadPool(
+            ThreadFactoryBuilder()
+                .setDaemon(false)
+                .setNameFormat("MineGame-bizThread-%d")
+                .build()
+        )
         Broker.buildAction(this::buildBrokerClient)
     }
 
@@ -65,7 +80,7 @@ class BukkitPlugin : JavaPlugin() {
     }
 
     override fun onDisable() {
-        bizExecutorService.shutdown()
-        bizExecutorService.awaitTermination(1L, TimeUnit.MINUTES)
+        bizThread.shutdown()
+        bizThread.awaitTermination(1L, TimeUnit.MINUTES)
     }
 }

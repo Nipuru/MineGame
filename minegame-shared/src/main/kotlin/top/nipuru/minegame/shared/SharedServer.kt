@@ -23,7 +23,7 @@ import top.nipuru.minegame.shared.processor.PlayerInfoUpdateHandler
 import top.nipuru.minegame.shared.processor.connection.CloseEventSharedProcessor
 import javax.sql.DataSource
 
-val logger: Logger = LoggerFactory.getLogger("SharedServer")
+val logger: Logger = LoggerFactory.getLogger("MineGame")
 val dataSource: DataSource
     get() = dataSourceProvider.dataSource
 

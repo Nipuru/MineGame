@@ -30,7 +30,6 @@ class PlayerJoinListener(private val pendingPlayers: MutableMap<UUID, GamePlayer
         }
     }
 
-    @Throws(Exception::class)
     private fun handleJoin(player: Player) {
         // GamePlayer 在 PreLogin 的时候就应该加载好了
         val gamePlayer = pendingPlayers.remove(player.uniqueId)

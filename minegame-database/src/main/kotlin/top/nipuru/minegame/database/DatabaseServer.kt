@@ -24,7 +24,7 @@ import top.nipuru.minegame.database.processor.connection.CloseEventDBProcessor
 import javax.sql.DataSource
 
 
-val logger: Logger = LoggerFactory.getLogger("DatabaseServer")
+val logger: Logger = LoggerFactory.getLogger("MineGame")
 val dataSource: DataSource
     get() = dataSourceProvider.dataSource
 

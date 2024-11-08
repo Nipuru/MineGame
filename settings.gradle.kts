@@ -1,7 +1,5 @@
 rootProject.name = "minegame"
 
-
-
 sequenceOf(
     "common",
     "database",

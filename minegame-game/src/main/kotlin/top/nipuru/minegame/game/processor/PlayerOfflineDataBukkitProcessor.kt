@@ -11,7 +11,7 @@ import top.nipuru.minegame.game.playerList
 import top.nipuru.minegame.game.plugin
 
 class PlayerOfflineDataBukkitProcessor : AsyncUserProcessor<PlayerOfflineDataMessage>() {
-    @Throws(Exception::class)
+
     override fun handleRequest(bizContext: BizContext, asyncContext: AsyncContext, request: PlayerOfflineDataMessage) {
         Bukkit.getScheduler().runTask(plugin, Runnable {
             val gamePlayer: GamePlayer = playerList.getPlayer(request.playerId)

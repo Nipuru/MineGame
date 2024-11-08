@@ -22,7 +22,7 @@ import top.nipuru.minegame.common.processor.RequestDispatcher
 import javax.sql.DataSource
 
 
-val logger: Logger = LoggerFactory.getLogger("AuthServer")
+val logger: Logger = LoggerFactory.getLogger("MineGame")
 val dataSource: DataSource
     get() = dataSourceProvider.dataSource
 

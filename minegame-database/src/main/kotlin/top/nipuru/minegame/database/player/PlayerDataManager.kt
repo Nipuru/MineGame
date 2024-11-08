@@ -108,7 +108,6 @@ object PlayerDataManager {
         }
     }
 
-    @Throws(SQLException::class)
     private fun initTable(con: Connection, tableInfo: TableInfo) {
         if (tableInitialized.contains(tableInfo.tableName)) return
         val createSql = StringBuilder()
